@@ -1,9 +1,10 @@
-name: tests
+name: CI/CD
 
 on:
   push:
     branches:
       - main
+#      - homolog
   pull_request:
 
 permissions:
@@ -11,6 +12,7 @@ permissions:
 
 jobs:
   ci:
+    name: CI
     runs-on: ubuntu-latest
 
     steps:
@@ -36,3 +38,23 @@ jobs:
 
       - name: Run CI Checks
         run: composer ci:check
+
+  deploy-homolog:
+    name: Deploy Homolog
+    needs: ci
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' #Teste na branch de main mesmo
+    runs-on: [self-hosted, Linux, X64, homolog]
+
+    steps:
+      - name: Run deploy script
+        run: /home/ubuntu/scripts/deploy.sh
+
+#  deploy-production:
+#    name: Deploy Production
+#    needs: ci
+#    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+#    runs-on: [self-hosted, Linux, X64, production]
+#
+#    steps:
+#      - name: Run deploy script
+#        run: /home/ubuntu/scripts/deploy.sh
