@@ -20,6 +20,10 @@
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
 
     <h1 class="bg-white text-red-600">Olha o h1 do pai</h1>
+    <h1 class="bg-white text-red-600">Olha o h2 do pai</h1>
+    <h1 class="bg-white text-red-600">Olha o h3 do pai</h1>
+    <h1 class="bg-white text-red-600">Olha o h4 do pai</h1>
+    <h1 class="bg-white text-red-600">Olha o h5 do pai</h1>
 
 
     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
